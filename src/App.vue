@@ -110,7 +110,7 @@ const projects = [
     tags: ["uni-app", "Nuxt4", "Vue 3", "TypeScript", "Node.js", "Express", "SQLite", "Trae"],
     category: "跨端开发",
     period: "2023.01-2026.01",
-    link: "#",
+    link: "",
     responsibilities: [
       "基于 uni-app 实现 App、小程序、H5 三端统一界面与逻辑开发",
       "使用 Nuxt4 对原有 Vue 项目进行重构，落地服务端渲染方案",
