@@ -271,3 +271,248 @@ img {
     padding: 0 1rem;
   }
 }
+
+/* 个人学习项目资源样式 */
+.project-demo-resources {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.demo-resource-item {
+  margin-bottom: 2rem;
+}
+
+.demo-resource-item h4 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.demo-links {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.demo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--bg-glass);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+
+.demo-link:hover {
+  background: rgba(168, 85, 247, 0.1);
+  border-color: var(--purple-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(168, 85, 247, 0.2);
+}
+
+.demo-screenshots h5 {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+}
+
+.screenshots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.screenshot-item {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.screenshot-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(168, 85, 247, 0.2);
+}
+
+.screenshot-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 项目卡片中的公司项目说明文字样式 */
+.company-project-note {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+  font-style: italic;
+}
+
+/* 打字效果光标 */
+.typing-cursor {
+  display: inline-block;
+  animation: blink 1s infinite;
+  color: var(--purple-primary);
+  font-weight: bold;
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.typing-text {
+  display: inline;
+}
+
+/* Section 进入退出动画 */
+section {
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+section:nth-child(1) {
+  animation-delay: 0.1s;
+}
+section:nth-child(2) {
+  animation-delay: 0.2s;
+}
+section:nth-child(3) {
+  animation-delay: 0.3s;
+}
+section:nth-child(4) {
+  animation-delay: 0.4s;
+}
+section:nth-child(5) {
+  animation-delay: 0.5s;
+}
+section:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Experience list 交互效果 */
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.experience-item {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.experience-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+.experience-item:hover::before {
+  left: 100%;
+}
+
+.experience-item:hover {
+  transform: translateX(10px) scale(1.02);
+  box-shadow: 0 10px 40px rgba(168, 85, 247, 0.3);
+  border-color: var(--purple-primary);
+}
+
+.experience-header {
+  position: relative;
+  z-index: 1;
+}
+
+.experience-title {
+  transition: color 0.3s ease;
+}
+
+.experience-item:hover .experience-title {
+  color: var(--purple-light);
+}
+
+.experience-period {
+  transition: all 0.3s ease;
+}
+
+.experience-item:hover .experience-period {
+  color: var(--accent-cyan);
+  transform: scale(1.05);
+}
+
+.experience-description {
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.experience-item:hover .experience-description {
+  color: var(--text-primary);
+}
+
+/* Experience item 进入动画 */
+.experience-item {
+  opacity: 0;
+  transform: translateX(-30px);
+  animation: slideInLeft 0.6s ease forwards;
+}
+
+.experience-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.experience-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.experience-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.experience-item:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .experience-item:hover {
+    transform: translateX(5px) scale(1.01);
+  }
+}

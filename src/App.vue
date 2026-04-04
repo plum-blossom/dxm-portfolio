@@ -1,8 +1,10 @@
 <script setup>
 import { ref, computed, onMounted } from "vue";
 import ProjectCard from "./components/ProjectCard.vue";
+// 导入 Animate.css
+import "animate.css";
 // 图片加载函数
-const getImage = (fileName, filePath = "./assets/skills") => {
+const getImage = (fileName, filePath = "/skills") => {
   try {
     return new URL(`${filePath}/${fileName}`, import.meta.url).href;
   } catch (error) {
@@ -15,14 +17,15 @@ const projects = [
   {
     id: 1,
     title: "网络安全实训靶场前端系统",
+    companyProject: true,
     description:
       "设计并开发了一套完整的网络安全实训靶场前端系统，支持网络环境构建、攻防演练、技能评估等功能，服务于网络安全人才培养和实战能力提升。该系统基于 Monorepo 架构，统一管理多个前端项目，包括竞赛活动平台、攻防对抗演练平台、培训实训平台等。",
-    image: getImage("rangeHub项目说明截图.png", "./assets/project/rh"),
+    image: getImage("rangeHub项目说明截图.png", "/project/rh"),
     images: [
-      getImage("rangeHub项目说明截图.png", "./assets/project/rh"),
-      getImage("企业脚手架工具说明截图.png", "./assets/project/rh"),
-      getImage("自动化测试之e2e.png", "./assets/project/rh"),
-      getImage("组件库文档说明截图.png", "./assets/project/rh"),
+      getImage("rangeHub项目说明截图.png", "/project/rh"),
+      getImage("企业脚手架工具说明截图.png", "/project/rh"),
+      getImage("自动化测试之e2e.png", "/project/rh"),
+      getImage("组件库文档说明截图.png", "/project/rh"),
     ],
     tags: [
       "Vue 3",
@@ -42,7 +45,7 @@ const projects = [
     ],
     category: "企业级应用",
     period: "2021.10-2026.03",
-    link: "",
+    link: "#projects",
     responsibilities: [
       "架构设计与工程优化：采用模块化思想拆分功能模块，设计高内聚低耦合的系统架构",
       "远程桌面连接技术：深度定制修改 Guacamole 源代码，实现 Web 端远程桌面连接功能",
@@ -69,9 +72,16 @@ const projects = [
   {
     id: 2,
     title: "指挥控制系统前端",
+    companyProject: true,
     description:
       "集成任务规划、态势监控、载荷管理、情报分析等核心功能模块，构建一体化前端操作平台，为军事指挥、网络安全分析、系统运维等场景用户提供统一、高效的交互与业务支撑能力。",
-    image: "https://images.unsplash.com/photo-1617791160505-6f00504e3519?w=800&q=80",
+    image: getImage("项目说明截图.png", "/project/zhkz"),
+    images: [
+      getImage("项目说明截图.png", "/project/zhkz"),
+      getImage("三维态势页面.png", "/project/zhkz"),
+      getImage("关系图.png", "/project/zhkz"),
+      getImage("网络拓扑图.png", "/project/zhkz"),
+    ],
     tags: [
       "Vue 3",
       "TypeScript",
@@ -89,7 +99,7 @@ const projects = [
     ],
     category: "3D可视化",
     period: "2024.07-2026.03",
-    link: "#",
+    link: "#projects",
     responsibilities: [
       "3D 态势可视化：协助集成 Three.js 和 Cesium 实现 3D 地球可视化，构建实时态势感知系统",
       "任务规划系统：协助基于@antv/g6 实现任务拓扑图设计，支持任务创建、编辑、载荷配置",
@@ -104,13 +114,31 @@ const projects = [
   {
     id: 3,
     title: "多端一体化内容管理平台",
+    personalProject: true,
+    learningTarget: "跨端开发和服务端渲染技术",
     description:
-      "基于 uni-app 实现 App、小程序、H5 三端统一界面与逻辑开发，完成路由管理、状态存储与跨端接口适配；使用 Nuxt4 对原有 Vue 项目进行重构，落地服务端渲染方案，优化首屏加载与 SEO 表现。",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+      "为了深入跨端开发和服务端渲染技术,我利用业余时间重写了一个概念版 Demo（见下方链接）。基于 uni-app 实现 App、小程序、H5 三端统一界面与逻辑开发，完成路由管理、状态存储与跨端接口适配；使用 Nuxt4 对原有 Vue 项目进行重构，落地服务端渲染方案，优化首屏加载与 SEO 表现。",
+    image: getImage("报名系统项目说明截图.png", "/project/uni-app"),
+    imageClass: "ara",
+    images: [
+      getImage("报名系统项目说明截图.png", "/project/uni-app"),
+      getImage("报名系统H5效果.gif", "/project/uni-app"),
+      getImage("报名系统小程序效果.gif", "/project/uni-app"),
+      getImage("小程序二维码.png", "/project/uni-app"),
+      getImage("演示录屏.gif", "/project/nuxt"),
+      getImage("bd-exam项目说明.png", "/project/nuxt"),
+    ],
     tags: ["uni-app", "Nuxt4", "Vue 3", "TypeScript", "Node.js", "Express", "SQLite", "Trae"],
     category: "跨端开发",
     period: "2023.01-2026.01",
-    link: "",
+    link: "#projects",
+    demoLinks: [
+      {
+        name: "uni-app开发的报名系统demo",
+        sourceCode: "https://gitee.com/web-dev-summary/enrollment-system.git",
+        demoLink: "https://static-mp-a3adac0e-7e7a-46d8-ad79-308e4c769dd5.next.bspapp.com/#/",
+      },
+    ],
     responsibilities: [
       "基于 uni-app 实现 App、小程序、H5 三端统一界面与逻辑开发",
       "使用 Nuxt4 对原有 Vue 项目进行重构，落地服务端渲染方案",
@@ -126,9 +154,11 @@ const projects = [
   {
     id: 4,
     title: "邦道公司业务前端系统",
+    companyProject: true,
     description:
       "设计并开发了公司 BD 目录下的多个前端项目，包括会计电算化系统、移动端应用、公司官网和综合管理系统，支持财务处理、移动端交互、企业形象展示和综合业务管理等功能，服务于公司业务发展和数字化转型。",
-    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80",
+    image: getImage("bd工作项目成果截图.png", "/project"),
+    images: [getImage("bd工作项目成果截图.png", "/project")],
     tags: [
       "Vue 2.6",
       "Vue Router",
@@ -149,7 +179,7 @@ const projects = [
     ],
     category: "企业级应用",
     period: "2019.10-2021.10",
-    link: "#",
+    link: "#projects",
     responsibilities: [
       "技术选型与架构设计：主导公司 BD 业务前端项目的技术选型和架构设计",
       "核心功能实现：实现会计电算化系统的账簿管理、凭证处理、报表生成等核心功能",
@@ -169,11 +199,16 @@ const projects = [
     title: "天人地科技前端项目集合",
     description:
       "负责开发和维护公司旗下多个前端项目，包括直播平台、公会后台管理系统和公司官网，为用户提供完整的在线服务生态。",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
+    image: getImage("trd工作项目成果截图.png", "/project/trd"),
+    images: [
+      getImage("trd工作项目成果截图.png", "/project/trd"),
+      getImage("公司官网.png", "/project/trd"),
+      getImage("直播官网.png", "/project/trd"),
+    ],
     tags: ["jQuery", "LayUI", "CSS3", "Swiper", "RongIMClient", "七牛云SDK"],
     category: "前端开发",
     period: "2019.03-2019.10",
-    link: "#",
+    link: "#projects",
     responsibilities: [
       "直播平台：PC端直播功能、视频流播放、实时聊天、图片视频上传、用户中心、排行榜、礼物系统",
       "公会后台：成员管理、数据统计、财务报表、权限管理、操作日志记录",
@@ -190,11 +225,19 @@ const projects = [
     title: "拍个全景AR平台",
     description:
       "该项目为AR全景实景认证平台，核心包含实景认证后台超级管理系统、多元化营销活动插件（转盘抽奖、微投票、摇一摇、问卷调研、微助力、企业手册制作）、官方移动端网站及配套小程序，为企业提供全景展示、实景认证、营销互动一体化解决方案。",
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80",
+    image: getImage("项目成果截图.png", "/project/cn"),
+    imageClass: "ara",
+    images: [
+      getImage("项目成果截图.png", "/project/cn"),
+      getImage("平台登录.png", "/project/cn"),
+      getImage("平台管理.png", "/project/cn"),
+      getImage("大转盘.png", "/project/cn"),
+      getImage("摇一摇.png", "/project/cn"),
+    ],
     tags: ["HTML5/CSS3", "jQuery", "Vue", "Vue-CLI", "ECharts", "Bootstrap", "PS", "PHP", "MySQL", "小程序开发"],
     category: "AR/VR",
     period: "2018.06-2018.12",
-    link: "#",
+    link: "#projects",
     responsibilities: [
       "基于PSD设计稿完成页面切片、布局搭建，实现总平台页面排版与动态交互效果",
       "独立开发全景总平台系统全页面及交互功能，搭建官网移动端Vue开发环境",
@@ -204,6 +247,32 @@ const projects = [
     achievements: [
       "高效完成平台全端页面开发与功能落地，实现全景展示、实景认证、多场景营销互动等核心能力",
       "页面交互流畅、数据交互稳定，支撑平台日常运营与企业用户使用需求",
+    ],
+  },
+  {
+    id: 7,
+    title: "Git Commit Lint 插件",
+    description:
+      "开发了一款 VS Code 插件，用于在提交代码前自动检查 Git commit 消息格式，帮助团队规范提交信息，提高代码协作效率。",
+    image: getImage("Git Commit Lint Plugin代码截图.png", "/project/vscode-extension"),
+    images: [
+      getImage("Git Commit Lint Plugin代码截图.png", "/project/vscode-extension"),
+      getImage("编译器安装VSCode插件截图.png", "/project/vscode-extension"),
+    ],
+    tags: ["TypeScript", "VS Code API", "Git", "Extension API", "Node.js"],
+    category: "工具开发",
+    period: "2023.06-2023.08",
+    link: "#projects",
+    responsibilities: [
+      "插件架构设计：设计插件的整体架构和功能模块，确保插件的可扩展性和可维护性",
+      "Git Commit 检查：实现 Git commit 消息格式检查功能，支持多种提交规范",
+      "VS Code API 集成：使用 VS Code Extension API 实现插件与编辑器的深度集成",
+      "用户界面开发：开发友好的用户界面，提供实时反馈和错误提示",
+    ],
+    achievements: [
+      "成功开发并发布 VS Code 插件，帮助团队规范 Git commit 消息格式",
+      "插件安装量和使用率逐步提升，获得用户好评",
+      "提升了团队代码协作效率，减少了因提交格式不规范导致的沟通成本",
     ],
   },
 ];
@@ -338,10 +407,16 @@ const skills = [
   { name: "vue-i18n", icon: "🌐", category: "国际化", description: "多语言支持", image: getImage("vue-i18n.svg") },
   { name: "Guacamole", icon: "🖥️", category: "高级技术", description: "Web远程桌面连接" },
   { name: "xterm.js", icon: "💻", category: "高级技术", description: "Web终端" },
-  { name: "vis.js", icon: "📊", category: "高级技术", description: "网络拓扑可视化" },
+  { name: "vis.js", icon: "📊", category: "高级技术", description: "网络拓扑可视化", image: getImage("vis.svg") },
 
   // AI 集成与网络
-  { name: "SSE", icon: "📡", category: "AI集成", description: "Server-Sent Events流式传输" },
+  {
+    name: "SSE",
+    icon: "📡",
+    category: "AI集成",
+    description: "Server-Sent Events流式传输",
+    image: getImage("SSE.svg"),
+  },
   { name: "Ollama", icon: "🤖", category: "AI集成", description: "本地大语言模型服务", image: getImage("Ollama.svg") },
   { name: "Trae", icon: "🤖", category: "AI集成", description: "AI编程工具", image: getImage("trae.svg") },
 ];
@@ -394,13 +469,6 @@ const contactItems = [
   { icon: "📍", label: "位置", value: "四川 · 成都" },
 ];
 
-// 联系表单
-const formData = ref({
-  name: "",
-  email: "",
-  message: "",
-});
-
 // 导航栏选中状态
 const activeNav = ref("home");
 
@@ -419,6 +487,129 @@ onMounted(() => {
 const categories = computed(() => {
   const uniqueCategories = new Set(projects.map((project) => project.category));
   return ["全部", ...Array.from(uniqueCategories)];
+});
+
+// 打字效果
+const heroTitle = ref("");
+const heroDescription = ref("");
+const aboutTexts = ref([]);
+const isTypingHero = ref(false);
+const isTypingAbout = ref(false);
+
+const fullHeroTitle = "杜小梅";
+const fullHeroDescription =
+  "你好！我有 8 年前端开发经验，专注ToB 企业级后台管理系统，具备H5、数据可视化、3D 可视化、uni-app及小程序开发能力，主导过架构设计、Monorepo 改造、组件库建设与 CI/CD流水线落地，可独立完成技术选型、性能优化与团队管理。";
+
+const fullAboutTexts = [
+  "我拥有 8 年前端开发经验，专注企业级后台管理系统，具备前端架构设计、工程化建设与团队管理能力。",
+  "主导企业级项目全生命周期开发，完成 Monorepo 改造、模块化与组件化建设，制定代码规范与 Git 工作流，基于 Jenkins 搭建 CI/CD 流水线，提升团队协作效率与代码质量。",
+  "可独立完成技术选型、核心模块开发、性能优化与团队技术指导，覆盖 3D 可视化、实时通信、AI集成等复杂业务场景落地。",
+  "补充自学实践：拓展跨端开发能力，基于 uni-app 独立完成 App、小程序、H5 多端一体化开发与适配；深入研究 Nuxt4 框架并完成存量项目重构，结合 Node.js、Express、SQLite 实现前后端全栈开发落地。",
+  "工具链创新：在日常开发中深度集成 AI编程工具（Trae），用于自动化文档生成、代码片段生成、接口注释完善及基础逻辑编写，提升需求拆解与文档维护效率。",
+];
+
+// 打字效果函数
+const typeWriter = (text, refVar, speed = 50) => {
+  return new Promise((resolve) => {
+    let index = 0;
+    refVar.value = "";
+    const timer = setInterval(() => {
+      if (index < text.length) {
+        refVar.value += text.charAt(index);
+        index++;
+      } else {
+        clearInterval(timer);
+        resolve();
+      }
+    }, speed);
+  });
+};
+
+// 多行打字效果
+const typeWriterMultiple = (texts, refArray, speed = 30) => {
+  return new Promise(async (resolve) => {
+    refArray.value = [];
+    for (let i = 0; i < texts.length; i++) {
+      refArray.value.push("");
+      await typeWriterToArray(texts[i], refArray, i, speed);
+    }
+    resolve();
+  });
+};
+
+const typeWriterToArray = (text, refArray, index, speed) => {
+  return new Promise((resolve) => {
+    let charIndex = 0;
+    const timer = setInterval(() => {
+      if (charIndex < text.length) {
+        refArray.value[index] += text.charAt(charIndex);
+        charIndex++;
+        // 触发响应式更新
+        refArray.value = [...refArray.value];
+      } else {
+        clearInterval(timer);
+        resolve();
+      }
+    }, speed);
+  });
+};
+
+// 页面加载时启动打字效果
+onMounted(async () => {
+  // Hero 部分打字效果
+  isTypingHero.value = true;
+  await typeWriter(fullHeroDescription, heroDescription, 80);
+  isTypingHero.value = false;
+
+  // 延迟后启动 About 部分打字效果
+  setTimeout(async () => {
+    isTypingAbout.value = true;
+    await typeWriterMultiple(fullAboutTexts, aboutTexts, 20);
+    isTypingAbout.value = false;
+  }, 1000);
+
+  // 滚动触发动画
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: "-50px 0px -50px 0px",
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        // 为不同类型的元素添加不同的动画
+        const element = entry.target;
+
+        if (element.classList.contains("section-title")) {
+          element.classList.add("animate__animated", "animate__fadeInUp");
+        } else if (element.classList.contains("section-subtitle")) {
+          element.classList.add("animate__animated", "animate__fadeInUp", "animate__delay-1s");
+        } else if (element.classList.contains("experience-item")) {
+          element.classList.add("animate__animated", "animate__fadeInLeft");
+        } else if (element.classList.contains("skill-card")) {
+          element.classList.add("animate__animated", "animate__fadeInUp");
+        } else if (element.classList.contains("project-item")) {
+          element.classList.add("animate__animated", "animate__fadeInUp");
+        } else if (element.classList.contains("contact-item")) {
+          element.classList.add("animate__animated", "animate__fadeInUp");
+        } else if (element.classList.contains("stat-card")) {
+          element.classList.add("animate__animated", "animate__fadeInUp");
+        } else if (element.classList.contains("about-left")) {
+          element.classList.add("animate__animated", "animate__fadeInLeft");
+        } else if (element.classList.contains("about-right")) {
+          element.classList.add("animate__animated", "animate__fadeInRight");
+        }
+
+        // 停止观察已触发动画的元素
+        observer.unobserve(element);
+      }
+    });
+  }, observerOptions);
+
+  // 观察所有需要滚动触发动画的元素
+  document.querySelectorAll(".animate-on-scroll").forEach((element) => {
+    observer.observe(element);
+  });
 });
 
 const selectedCategory = ref("全部");
@@ -459,7 +650,7 @@ const closeImageViewer = () => {
 <template>
   <div class="app">
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar animate__animated animate__fadeInDown animate__delay-1s">
       <div class="container nav-container">
         <div class="logo">
           <div class="logo-icon"><img src="./assets/logo.svg" alt="" /></div>
@@ -469,12 +660,42 @@ const closeImageViewer = () => {
           </div>
         </div>
         <div class="nav-links">
-          <a href="#" :class="{ 'nav-cta': activeNav === 'home' }">首页</a>
-          <a href="#about" :class="{ 'nav-cta': activeNav === 'about' }">关于</a>
-          <a href="#experience" :class="{ 'nav-cta': activeNav === 'experience' }">经验</a>
-          <a href="#skills" :class="{ 'nav-cta': activeNav === 'skills' }">技能</a>
-          <a href="#projects" :class="{ 'nav-cta': activeNav === 'projects' }">项目</a>
-          <a href="#contact" :class="{ 'nav-cta': activeNav === 'contact' }">联系</a>
+          <a
+            href="#"
+            :class="{ 'nav-cta': activeNav === 'home' }"
+            class="animate__animated animate__fadeIn animate__delay-2s"
+            >首页</a
+          >
+          <a
+            href="#about"
+            :class="{ 'nav-cta': activeNav === 'about' }"
+            class="animate__animated animate__fadeIn animate__delay-2-1s"
+            >关于</a
+          >
+          <a
+            href="#experience"
+            :class="{ 'nav-cta': activeNav === 'experience' }"
+            class="animate__animated animate__fadeIn animate__delay-2-2s"
+            >经验</a
+          >
+          <a
+            href="#skills"
+            :class="{ 'nav-cta': activeNav === 'skills' }"
+            class="animate__animated animate__fadeIn animate__delay-2-3s"
+            >技能</a
+          >
+          <a
+            href="#projects"
+            :class="{ 'nav-cta': activeNav === 'projects' }"
+            class="animate__animated animate__fadeIn animate__delay-2-4s"
+            >项目</a
+          >
+          <a
+            href="#contact"
+            :class="{ 'nav-cta': activeNav === 'contact' }"
+            class="animate__animated animate__fadeIn animate__delay-2-5s"
+            >联系</a
+          >
         </div>
       </div>
     </nav>
@@ -482,12 +703,12 @@ const closeImageViewer = () => {
     <!-- Hero Section -->
     <section class="hero">
       <div class="hero-bg">
-        <div class="gradient-orb orb-1"></div>
-        <div class="gradient-orb orb-2"></div>
-        <div class="gradient-orb orb-3"></div>
+        <div class="gradient-orb orb-1 animate__animated animate__zoomIn animate__delay-1s"></div>
+        <div class="gradient-orb orb-2 animate__animated animate__zoomIn animate__delay-1-3s"></div>
+        <div class="gradient-orb orb-3 animate__animated animate__zoomIn animate__delay-1-6s"></div>
       </div>
       <div class="container">
-        <div class="hero-content">
+        <div class="hero-content animate__animated animate__fadeInUp animate__delay-1-5s">
           <div class="hero-badge">
             <span class="badge-dot"></span>
             前端开发者 & 技术小组长
@@ -497,28 +718,37 @@ const closeImageViewer = () => {
             <span class="gradient-text">前端开发工程师</span>
           </h1>
           <p class="hero-description">
-            你好！我有 8 年前端开发经验，专注ToB 企业级后台管理系统，具备H5、数据可视化、3D 可视化、uni-app
-            及小程序开发能力，主导过架构设计、Monorepo 改造、组件库建设与 CI/CD
-            流水线落地，可独立完成技术选型、性能优化与团队管理。
+            <span v-if="isTypingHero" class="typing-text"
+              >{{ heroDescription }}<span class="typing-cursor">|</span></span
+            >
+            <span v-else>{{ heroDescription }}</span>
           </p>
           <div class="hero-actions">
-            <a href="#projects" class="btn-primary">
+            <a href="#projects" class="btn-primary animate__animated animate__fadeInUp animate__delay-2-5s">
               <span>查看项目</span>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </a>
-            <a href="#contact" class="btn-secondary">联系我</a>
+            <a href="#contact" class="btn-secondary animate__animated animate__fadeInUp animate__delay-2-7s">联系我</a>
           </div>
           <div class="social-links">
-            <a href="https://github.com/plum-blossom" class="social-link" title="GitHub">
+            <a
+              href="https://github.com/plum-blossom"
+              class="social-link animate__animated animate__bounceIn animate__delay-3s"
+              title="GitHub"
+            >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                 <path
                   d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
                 />
               </svg>
             </a>
-            <a href="https://gitee.com/plumbloosom" class="social-link" title="Gitee">
+            <a
+              href="https://gitee.com/plumbloosom"
+              class="social-link animate__animated animate__bounceIn animate__delay-3-1s"
+              title="Gitee"
+            >
               <svg
                 t="1775209578055"
                 class="icon"
@@ -544,37 +774,26 @@ const closeImageViewer = () => {
     <!-- About Section -->
     <section id="about" class="about">
       <div class="container">
-        <h2 class="section-title">关于我</h2>
-        <p class="section-subtitle">了解代码背后的人</p>
+        <h2 class="section-title animate-on-scroll">关于我</h2>
+        <p class="section-subtitle animate-on-scroll">了解代码背后的人</p>
         <div class="about-grid">
-          <div class="about-image-wrapper">
+          <div class="about-image-wrapper animate-on-scroll about-left">
             <div class="about-image">
               <img src="./assets/蓝底寸照.jpg" alt="杜小梅" />
               <div class="image-glow"></div>
             </div>
           </div>
-          <div class="about-content">
+          <div class="about-content animate-on-scroll about-right">
             <div class="about-text">
-              <p>我拥有 8 年前端开发经验，专注企业级后台管理系统，具备前端架构设计、工程化建设与团队管理能力。</p>
-              <p>
-                主导企业级项目全生命周期开发，完成 Monorepo 改造、模块化与组件化建设，制定代码规范与 Git 工作流，基于
-                Jenkins 搭建 CI/CD 流水线，提升团队协作效率与代码质量。
-              </p>
-              <p>
-                可独立完成技术选型、核心模块开发、性能优化与团队技术指导，覆盖 3D 可视化、实时通信、AI
-                集成等复杂业务场景落地。
-              </p>
-              <p>
-                补充自学实践：拓展跨端开发能力，基于 uni-app 独立完成 App、小程序、H5 多端一体化开发与适配；深入研究
-                Nuxt4 框架并完成存量项目重构，结合 Node.js、Express、SQLite 实现前后端全栈开发落地。
-              </p>
-              <p>
-                工具链创新：在日常开发中深度集成 AI
-                编程工具（Trae），用于自动化文档生成、代码片段生成、接口注释完善及基础逻辑编写，提升需求拆解与文档维护效率。
+              <p v-for="(text, index) in isTypingAbout ? aboutTexts : fullAboutTexts" :key="index">
+                <span v-if="isTypingAbout && index === aboutTexts.length - 1" class="typing-text">
+                  {{ text }}<span class="typing-cursor">|</span>
+                </span>
+                <span v-else>{{ text }}</span>
               </p>
             </div>
             <div class="stats-grid">
-              <div v-for="(stat, index) in stats" :key="index" class="stat-card">
+              <div v-for="(stat, index) in stats" :key="index" class="stat-card animate-on-scroll">
                 <div class="stat-value">{{ stat.value }}</div>
                 <div class="stat-label">{{ stat.label }}</div>
               </div>
@@ -587,10 +806,10 @@ const closeImageViewer = () => {
     <!-- Experience Section -->
     <section id="experience" class="experience">
       <div class="container">
-        <h2 class="section-title">工作经历</h2>
-        <p class="section-subtitle">我的专业旅程与职业成长</p>
+        <h2 class="section-title animate-on-scroll">工作经历</h2>
+        <p class="section-subtitle animate-on-scroll">我的专业旅程与职业成长</p>
         <div class="experience-list">
-          <div v-for="(exp, index) in experiences" :key="index" class="experience-item glass-card">
+          <div v-for="(exp, index) in experiences" :key="index" class="experience-item glass-card animate-on-scroll">
             <div class="experience-header">
               <div class="experience-title-group">
                 <h3 class="experience-title">{{ exp.title }}</h3>
@@ -607,10 +826,10 @@ const closeImageViewer = () => {
     <!-- Skills Section -->
     <section id="skills" class="skills">
       <div class="container">
-        <h2 class="section-title">技能与技术</h2>
-        <p class="section-subtitle">将创意变为现实的神奇工具</p>
+        <h2 class="section-title animate-on-scroll">技能与技术</h2>
+        <p class="section-subtitle animate-on-scroll">将创意变为现实的神奇工具</p>
         <div class="skills-grid">
-          <div v-for="(skill, index) in skills" :key="index" class="skill-card glass-card">
+          <div v-for="(skill, index) in skills" :key="index" class="skill-card glass-card animate-on-scroll">
             <div class="skill-icon">
               <img v-if="skill.image" :src="skill.image" :alt="skill.name" class="skill-image" />
               <span v-else>{{ skill.icon }}</span>
@@ -625,16 +844,16 @@ const closeImageViewer = () => {
     <!-- Projects Section -->
     <section id="projects" class="projects">
       <div class="container">
-        <h2 class="section-title">精选项目</h2>
-        <p class="section-subtitle">我的创意作品与技术专长展示</p>
+        <h2 class="section-title animate-on-scroll">精选项目</h2>
+        <p class="section-subtitle animate-on-scroll">我的创意作品与技术专长展示</p>
         <!-- 项目分类筛选 -->
         <div class="project-filters">
           <button
-            v-for="category in categories"
+            v-for="(category, index) in categories"
             :key="category"
             :class="{ active: selectedCategory === category }"
             @click="selectedCategory = category"
-            class="filter-btn"
+            class="filter-btn animate-on-scroll"
           >
             {{ category }}
           </button>
@@ -644,7 +863,7 @@ const closeImageViewer = () => {
             v-for="(project, index) in filteredProjects"
             :key="project.id"
             @click="openProjectDetails(project)"
-            class="project-item"
+            class="project-item animate-on-scroll"
           >
             <ProjectCard
               :title="project.title"
@@ -652,6 +871,8 @@ const closeImageViewer = () => {
               :image="project.image"
               :tags="project.tags"
               :link="project.link"
+              :companyProject="project.companyProject"
+              :demoLinks="project.demoLinks"
             />
           </div>
         </div>
@@ -661,11 +882,11 @@ const closeImageViewer = () => {
     <!-- Contact Section -->
     <section id="contact" class="contact">
       <div class="container">
-        <h2 class="section-title">联系我</h2>
-        <p class="section-subtitle">无论是项目合作、技术交流还是工作机会，都欢迎与我联系。</p>
+        <h2 class="section-title animate-on-scroll">联系我</h2>
+        <p class="section-subtitle animate-on-scroll">无论是项目合作、技术交流还是工作机会，都欢迎与我联系。</p>
         <div class="contact-info">
           <div class="contact-items">
-            <div v-for="(item, index) in contactItems" :key="index" class="contact-item">
+            <div v-for="(item, index) in contactItems" :key="index" class="contact-item animate-on-scroll">
               <div class="contact-icon">{{ item.icon }}</div>
               <div class="contact-detail">
                 <span class="contact-label">{{ item.label }}</span>
@@ -681,12 +902,6 @@ const closeImageViewer = () => {
     <!-- Footer -->
     <footer class="footer">
       <div class="container">
-        <div class="footer-content">
-          <div class="footer-brand">
-            <span class="logo-icon"><img src="/favicon.svg" alt="" /></span>
-            <span class="footer-name">杜小梅</span>
-          </div>
-        </div>
         <div class="footer-bottom">
           <p>&copy; 2026 个人作品集. 保留所有权利.</p>
         </div>
@@ -694,8 +909,12 @@ const closeImageViewer = () => {
     </footer>
 
     <!-- 项目详情模态框 -->
-    <div v-if="selectedProject" class="project-modal" @click.self="closeProjectDetails">
-      <div class="project-modal-content">
+    <div
+      v-if="selectedProject"
+      class="project-modal animate__animated animate__fadeIn"
+      @click.self="closeProjectDetails"
+    >
+      <div class="project-modal-content animate__animated animate__zoomIn">
         <button class="close-btn" @click="closeProjectDetails">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -725,6 +944,7 @@ const closeImageViewer = () => {
                 :alt="selectedProject.title + ' ' + (index + 1)"
                 @click="openImageViewer(img)"
                 style="cursor: pointer"
+                :class="selectedProject?.imageClass ? selectedProject.imageClass : ''"
               />
             </div>
           </div>
@@ -752,18 +972,45 @@ const closeImageViewer = () => {
             <ul v-if="selectedProject.achievements">
               <li v-for="(achievement, index) in selectedProject.achievements" :key="index">{{ achievement }}</li>
             </ul>
+
+            <!-- 个人学习项目资源 -->
+            <div v-if="selectedProject.demoLinks" class="project-demo-resources">
+              <h3>项目资源</h3>
+              <div v-for="(demo, index) in selectedProject.demoLinks" :key="index" class="demo-resource-item">
+                <h4>{{ demo.name }}</h4>
+                <div class="demo-links">
+                  <a v-if="demo.sourceCode" :href="demo.sourceCode" target="_blank" class="demo-link source-code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path
+                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                      ></path>
+                    </svg>
+                    源码仓库
+                  </a>
+                  <a v-if="demo.demoLink" :href="demo.demoLink" target="_blank" class="demo-link demo-site">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" />
+                    </svg>
+                    在线演示
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="project-modal-footer">
-          <a v-if="selectedProject.link" :href="selectedProject.link" target="_blank" class="btn-primary">查看项目</a>
           <button class="btn-secondary" @click="closeProjectDetails">返回</button>
         </div>
       </div>
     </div>
 
     <!-- 图片查看器模态框 -->
-    <div v-if="selectedImage" class="image-viewer-modal" @click.self="closeImageViewer">
-      <div class="image-viewer-content">
+    <div
+      v-if="selectedImage"
+      class="image-viewer-modal animate__animated animate__fadeIn"
+      @click.self="closeImageViewer"
+    >
+      <div class="image-viewer-content animate__animated animate__zoomIn">
         <button class="close-btn" @click="closeImageViewer">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -1012,6 +1259,9 @@ const closeImageViewer = () => {
   width: 100%;
   aspect-ratio: 16/9;
   object-fit: cover;
+}
+.project-image-item img.ara {
+  aspect-ratio: auto;
 }
 
 @media (max-width: 768px) {
@@ -1465,9 +1715,30 @@ const closeImageViewer = () => {
 }
 
 .projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
+  column-count: 3;
+  column-gap: 2rem;
+  break-inside: avoid;
+}
+
+/* 响应式瀑布流布局 */
+@media (max-width: 1200px) {
+  .projects-grid {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-grid {
+    column-count: 1;
+  }
+}
+
+/* 防止项目卡片被分割到不同列 */
+.project-item {
+  break-inside: avoid;
+  margin-bottom: 2rem;
+  display: inline-block;
+  width: 100%;
 }
 
 /* Contact Section */
@@ -1541,7 +1812,6 @@ const closeImageViewer = () => {
 .footer {
   padding: 3rem 0 2rem;
   background: var(--bg-primary);
-  border-top: 1px solid var(--border-color);
 }
 
 .footer-content {
