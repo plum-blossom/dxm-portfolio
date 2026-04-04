@@ -6,7 +6,9 @@ import "animate.css";
 // 图片加载函数
 const getImage = (fileName, filePath = "/skills") => {
   try {
-    return new URL(`${filePath}/${fileName}`, import.meta.url).href;
+    // 使用 import.meta.env.BASE_URL 获取配置的 base 路径
+    const baseUrl = import.meta.env.BASE_URL || "/";
+    return `${baseUrl}${filePath.replace(/^\//, "")}/${fileName}`;
   } catch (error) {
     console.error(`Failed to load image: ${fileName}`, error);
     return null;
