@@ -117,7 +117,7 @@ const projects = [
     personalProject: true,
     learningTarget: "跨端开发和服务端渲染技术",
     description:
-      "为了深入跨端开发和服务端渲染技术,我利用业余时间重写了一个概念版 Demo（见下方链接）。基于 uni-app 实现 App、小程序、H5 三端统一界面与逻辑开发，完成路由管理、状态存储与跨端接口适配；使用 Nuxt4 对原有 Vue 项目进行重构，落地服务端渲染方案，优化首屏加载与 SEO 表现。",
+      "为了深入跨端开发和服务端渲染技术,我利用业余时间重写了一个概念版 Demo（见下方链接）。基于 uni-app 实现 App、小程序、H5 三端统一界面与逻辑开发，完成路由管理、状态存储与跨端接口适配；使用 Nuxt4 对原有 Vue 项目进行重构，落地服务端渲染方案，优化首屏加载与 SEO 表现。基于芋道（Yudao）低代码平台完成二次开发：搭建本地前后端环境，通过 Vue3 管理后台定制业务菜单、配置生成参数，编写 SQL 脚本并完成代码包生成；将前端组件、后端代码及数据库脚本集成至项目，验证全链路功能正常，实现业务菜单模块快速落地。",
     image: getImage("报名系统项目说明截图.png", "/project/uni-app"),
     imageClass: "ara",
     images: [
@@ -127,8 +127,10 @@ const projects = [
       getImage("小程序二维码.png", "/project/uni-app"),
       getImage("演示录屏.gif", "/project/nuxt"),
       getImage("bd-exam项目说明.png", "/project/nuxt"),
+      getImage("芋道管理后台.png", "/project/yudao"),
+      getImage("芋道后端项目启动.png", "/project/yudao"),
     ],
-    tags: ["uni-app", "Nuxt4", "Vue 3", "TypeScript", "Node.js", "Express", "SQLite", "Trae"],
+    tags: ["uni-app", "Nuxt4", "Vue 3", "TypeScript", "Node.js", "Express", "SQLite", "Trae", "芋道（Yudao）"],
     category: "跨端开发",
     period: "2023.01-2026.01",
     link: "#projects",
@@ -143,12 +145,14 @@ const projects = [
       "基于 uni-app 实现 App、小程序、H5 三端统一界面与逻辑开发",
       "使用 Nuxt4 对原有 Vue 项目进行重构，落地服务端渲染方案",
       "基于 Node.js + Express + SQLite 搭建简易后端服务，实现数据持久化与接口管理",
+      "基于芋道（Yudao）低代码平台完成二次开发：搭建本地前后端环境，通过 Vue3 管理后台定制业务菜单、配置生成参数，编写 SQL 脚本并完成代码包生成；将前端组件、后端代码及数据库脚本集成至项目，验证全链路功能正常，实现业务菜单模块快速落地",
       "全程使用 Trae 辅助完成 API 文档生成、代码模板生成与基础逻辑编写",
     ],
     achievements: [
       "实现了多端统一的内容管理平台，支持 App、小程序、H5 三端访问",
       "通过 Nuxt4 重构优化了首屏加载速度和 SEO 表现",
       "完成了前后端全栈开发，实现了完整的业务流程",
+      "实现基于芋道（Yudao）低代码平台完成二次开发",
     ],
   },
   {
@@ -498,13 +502,13 @@ const isTypingAbout = ref(false);
 
 const fullHeroTitle = "杜小梅";
 const fullHeroDescription =
-  "你好！我有 8 年前端开发经验，专注ToB 企业级后台管理系统，具备H5、数据可视化、3D 可视化、uni-app及小程序开发能力，主导过架构设计、Monorepo 改造、组件库建设与 CI/CD流水线落地，可独立完成技术选型、性能优化与团队管理。";
+  "你好！我有 8 年前端开发经验，专注ToB 企业级后台管理系统，具备H5、数据可视化、3D 可视化、uni-app及小程序开发能力，主导过架构设计、Monorepo 改造、组件库建设与 CI/CD流水线落地，可独立完成技术选型、性能优化与团队管理；掌握芋道（Yudao）低代码平台二次开发，实现业务模块快速落地。";
 
 const fullAboutTexts = [
   "我拥有 8 年前端开发经验，专注企业级后台管理系统，具备前端架构设计、工程化建设与团队管理能力。",
   "主导企业级项目全生命周期开发，完成 Monorepo 改造、模块化与组件化建设，制定代码规范与 Git 工作流，基于 Jenkins 搭建 CI/CD 流水线，提升团队协作效率与代码质量。",
   "可独立完成技术选型、核心模块开发、性能优化与团队技术指导，覆盖 3D 可视化、实时通信、AI集成等复杂业务场景落地。",
-  "补充自学实践：拓展跨端开发能力，基于 uni-app 独立完成 App、小程序、H5 多端一体化开发与适配；深入研究 Nuxt4 框架并完成存量项目重构，结合 Node.js、Express、SQLite 实现前后端全栈开发落地。",
+  "补充自学实践：拓展跨端开发能力，基于 uni-app 独立完成 App、小程序、H5 多端一体化开发与适配；深入研究 Nuxt4 框架并完成存量项目重构，结合 Node.js、Express、SQLite 实现前后端全栈开发落地；基于芋道（Yudao）低代码平台完成二次开发：搭建本地前后端环境，通过 Vue3 管理后台定制业务菜单、配置生成参数，编写 SQL 脚本并完成代码包生成；将前端组件、后端代码及数据库脚本集成至项目，验证全链路功能正常，实现业务菜单模块快速落地。",
   "工具链创新：在日常开发中深度集成 AI编程工具（Trae），用于自动化文档生成、代码片段生成、接口注释完善及基础逻辑编写，提升需求拆解与文档维护效率。",
 ];
 
