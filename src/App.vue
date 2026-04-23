@@ -279,6 +279,63 @@ const projects = [
       "提升了团队代码协作效率，减少了因提交格式不规范导致的沟通成本",
     ],
   },
+  {
+    id: 8,
+    title: "芋道低代码业务系统合集",
+    personalProject: true,
+    description:
+      "基于芋道微服务低代码平台，完成CRM、ERP、商城、水务管理系统等企业级业务系统前后端全流程开发，支持快速迭代与业务落地。",
+    image: getImage("清源智慧水务界面.png", "/project/yudao"),
+    images: [
+      getImage("清源智慧水务界面.png", "/project/yudao"),
+      getImage("清源智慧水务前端代码截图.png", "/project/yudao"),
+      getImage("清源智慧水务后端代码截图.png", "/project/yudao"),
+    ],
+    tags: ["芋道(Yudao)", "Spring Boot", "Vue3", "uni-app", "Docker", "MySQL", "Redis", "Nacos"],
+    category: "低代码",
+    period: "2023.01-2026.01",
+    link: "#projects",
+    responsibilities: [
+      "基于芋道微服务低代码平台，独立完成CRM、ERP、商城、水务管理系统前后端全流程开发",
+      "使用Docker一键启动MySQL、Nacos、Redis、Tomcat，快速搭建微服务开发与运行环境",
+      "完成表结构设计、代码生成、接口联调、权限体系、数据大屏、uni-app多端适配",
+    ],
+    achievements: ["实现企业级业务快速交付，具备中台化、低代码前端架构与全栈落地能力"],
+  },
+  {
+    id: 9,
+    title: "多端一体化内容管理平台",
+    personalProject: true,
+    description:
+      "基于uni-app实现App、小程序、H5三端统一界面与逻辑开发，使用Nuxt4对原有Vue项目进行重构，落地服务端渲染方案，优化首屏加载与SEO表现。",
+    image: getImage("报名系统项目说明截图.png", "/project/uni-app"),
+    images: [
+      getImage("报名系统项目说明截图.png", "/project/uni-app"),
+      getImage("报名系统H5效果.gif", "/project/uni-app"),
+      getImage("报名系统小程序效果.gif", "/project/uni-app"),
+      getImage("小程序二维码.png", "/project/uni-app"),
+    ],
+    tags: ["uni-app", "Nuxt4", "Vue3", "TypeScript", "Node.js", "Express", "SQLite"],
+    category: "跨端开发",
+    period: "2023.01-2026.01",
+    link: "#projects",
+    demoLinks: [
+      {
+        name: "uni-app开发的报名系统demo",
+        sourceCode: "https://gitee.com/web-dev-summary/enrollment-system.git",
+        demoLink: "https://static-mp-a3adac0e-7e7a-46d8-ad79-308e4c769dd5.next.bspapp.com/#/",
+      },
+    ],
+    responsibilities: [
+      "基于uni-app实现App、小程序、H5三端统一开发与适配",
+      "用Nuxt4重构项目，落地SSR优化首屏与SEO",
+      "Node全栈实现接口与数据持久化",
+    ],
+    achievements: [
+      "实现了多端统一的内容管理平台，支持App、小程序、H5三端访问",
+      "通过Nuxt4重构优化了首屏加载速度和SEO表现",
+    ],
+  },
 ];
 
 // 技能数据
@@ -423,39 +480,61 @@ const skills = [
   },
   { name: "Ollama", icon: "🤖", category: "AI集成", description: "本地大语言模型服务", image: getImage("Ollama.svg") },
   { name: "Trae", icon: "🤖", category: "AI集成", description: "AI编程工具", image: getImage("trae.svg") },
+
+  // 后端与部署
+  {
+    name: "Spring Boot",
+    icon: "🍃",
+    category: "后端",
+    description: "Java微服务框架",
+    image: getImage("spring-boot.svg"),
+  },
+  { name: "Docker", icon: "🐳", category: "部署", description: "容器化部署", image: getImage("docker.svg") },
+  { name: "Jenkins", icon: "🔧", category: "工程化", description: "CI/CD流水线", image: getImage("jenkins.svg") },
+  { name: "Nacos", icon: "🔷", category: "后端", description: "服务发现与配置管理", image: getImage("Nacos.svg") },
+  { name: "Redis", icon: "⚡", category: "后端", description: "缓存数据库", image: getImage("redis.svg") },
+  { name: "MySQL", icon: "🗃️", category: "后端", description: "关系型数据库", image: getImage("mysql.svg") },
+  { name: "PHP", icon: "🐘", category: "后端", description: "服务端脚本语言", image: getImage("php.svg") },
+
+  // 低代码平台
+  {
+    name: "芋道(Yudao)",
+    icon: "🌱",
+    category: "低代码",
+    description: "微服务低代码平台",
+    image: getImage("yudao.svg"),
+  },
 ];
 
 // 经历数据
 const experiences = [
   {
-    title: "前端开发工程师",
+    title: "前端开发工程师+小组长",
     company: "北京安天网络安全技术有限公司成都分公司",
     period: "2021.10-2026.03",
     description:
-      "1.主导前端开发：负责网络安全实训靶场前端系统的整体设计与开发，采用 Monorepo 架构统一管理多个前端项目，带领 1-3 人团队协作完成项目，确保项目按时交付；主导多仓库整合与架构重构，提升代码复用率与团队协作效率。2.技术栈选型与架构设计：根据项目需求和技术发展趋势，选择 Vue 3、TypeScript、Vite/Vue CLI 、Turbo、Playwright等主流技术栈，设计高内聚低耦合的系统架构，保障各子系统高效协作。3.前端基建与工程化：搭建前端工程化体系，包括代码规范（ESLint、Prettier、Stylelint）、构建流程、部署策略等；抽离 Vue 后台管理系统脚手架，支持 vue-cli 和 vite 两个版本，为不同项目提供标准化的开发环境。4.组件库与文档建设：构建共享组件库，开发组件库文档，实现组件的复用和标准化，提升开发效率和代码质量。5.配置管理与自动化：将项目配置抽离为统一管理，实现配置的集中化和复用；开发 Node 脚本实现自动化构建、部署和 Git 子树管理，减少手动操作，提高工作效率。6.性能优化与技术创新：通过代码分割、Tree Shaking、按需加载等优化策略减小打包体积，实现组件按需加载、路由懒加载，提升页面加载速度 40%；深度定制 Guacamole 源代码，解决 Web 远程桌面连接稳定性问题。7.团队协作与指导：指导团队成员进行代码开发，解决技术难题，促进团队技术能力提升，实现多仓库整合与 Monorepo 架构落地。",
+      "主导网络安全实训靶场前端系统架构设计与开发，采用Monorepo统一管理多项目，带领1-3人团队按时交付。负责Vue3/TS/Vite技术栈选型，搭建工程化体系、代码规范、共享组件库与文档。抽离Vue后台管理脚手架（vue-cli/Vite双版本），实现标准化开发环境与配置集中管理。用Node脚本实现自动化构建、部署与Git子树管理，集成Turbo提升构建效率60%+。性能优化：代码分割/懒加载/Tree Shaking，页面加载速度提升40%；深度定制Guacamole实现Web远程桌面。指导团队成员，解决技术难题，推动多仓库整合与工程化落地。",
   },
   {
     title: "前端开发工程师",
     company: "邦道科技有限公司",
     period: "2019.10-2021.10",
     description:
-      "- 负责公司前端项目的技术选型、架构设计和核心功能实现，主导开发多个公司业务相关的前端项目。- 搭建项目基础架构，配置开发环境和构建流程，确保项目开发的高效性和一致性。- 封装通用组件和工具函数，提高代码复用率和开发效率，优化项目性能和用户体验。- 解决项目中的技术难点和性能问题，确保项目顺利上线和稳定运行。- 指导和协助 1-3 名开发人员完成项目开发工作，提升团队整体技术水平和协作能力。",
+      "负责公司前端项目技术选型、架构设计与核心功能开发，搭建项目基础架构与构建流程。封装通用组件与工具函数，提升代码复用率；优化性能与体验，保障项目稳定上线。指导1-3名开发人员协同开发，建立团队开发规范，提升整体研发能力。",
   },
   {
     title: "前端开发工程师",
     company: "成都天人地网络科技有限公司",
     period: "2019.03-2019.10",
     description:
-      "1.负责公司前端项目的设计、开发和维护2.参与产品需求分析和技术方案设计3.与后端开发团队协作，实现前后端数据交互4.优化前端性能，提升用户体验5.维护和更新公司官网及相关业务系统",
+      "负责公司前端项目设计、开发与维护，参与需求分析与方案设计，对接后端实现数据交互。维护公司官网及业务系统，保障功能稳定与体验流畅。",
   },
   {
     title: "前端开发工程师",
     company: "四川驰诺科技有限公司",
     period: "2018.06-2018.12",
-    description: `1.负责拍个全景AR平台全端开发与迭代工作，基于PSD设计稿完成页面切片、排版布局及动态效果实现；
-    2.使用HTML5/CSS3、jQuery、Vue-CLI开发平台系统、移动端官网及小程序，独立完成页面搭建与交互功能开发；
-    3.对接后端数据接口实现前后端数据交互，结合ECharts、Bootstrap、PHP、MySQL完成转盘抽奖、微投票等营销插件的功能开发与数据落地；
-    4.保障页面兼容性、交互流畅度及功能稳定性，支撑平台实景认证、营销互动等核心业务落地。`,
+    description:
+      "负责拍个全景AR平台前端页面开发与迭代，完成页面切片、布局与交互实现。使用Vue-CLI开发后台管理系统、移动端官网，并参与微信小程序前端开发。独立负责营销插件前后端全栈开发，对接后端主服务，保障系统兼容性与稳定性。",
   },
 ];
 
@@ -470,7 +549,7 @@ const stats = [
 const contactItems = [
   { icon: "📧", label: "邮箱", value: "2510902754@qq.com", link: "mailto:2510902754@qq.com" },
   { icon: "📱", label: "电话", value: "+86 147 0800 9591" },
-  { icon: "📍", label: "位置", value: "四川 · 成都" },
+  { icon: "📍", label: "位置", value: "成都" },
 ];
 
 // 导航栏选中状态
@@ -502,14 +581,14 @@ const isTypingAbout = ref(false);
 
 const fullHeroTitle = "杜小梅";
 const fullHeroDescription =
-  "你好！我有 8 年前端开发经验，专注ToB 企业级后台管理系统，具备H5、数据可视化、3D 可视化、uni-app及小程序开发能力，主导过架构设计、Monorepo 改造、组件库建设与 CI/CD流水线落地，可独立完成技术选型、性能优化与团队管理；掌握芋道（Yudao）低代码平台二次开发，实现业务模块快速落地。";
+  "你好！我有 8 年前端开发经验，，擅长企业级后台、前端架构与工程化，熟练 Vue3/TS/ 低代码平台，具备团队管理与全栈交付能力。主导 Monorepo、CI/CD、性能优化等落地，熟悉 3D 可视化、实时通信、Web 远程桌面，可快速交付 CRM、ERP、水务等业务系统。";
 
 const fullAboutTexts = [
-  "我拥有 8 年前端开发经验，专注企业级后台管理系统，具备前端架构设计、工程化建设与团队管理能力。",
-  "主导企业级项目全生命周期开发，完成 Monorepo 改造、模块化与组件化建设，制定代码规范与 Git 工作流，基于 Jenkins 搭建 CI/CD 流水线，提升团队协作效率与代码质量。",
-  "可独立完成技术选型、核心模块开发、性能优化与团队技术指导，覆盖 3D 可视化、实时通信、AI集成等复杂业务场景落地。",
-  "补充自学实践：拓展跨端开发能力，基于 uni-app 独立完成 App、小程序、H5 多端一体化开发与适配；深入研究 Nuxt4 框架并完成存量项目重构，结合 Node.js、Express、SQLite 实现前后端全栈开发落地；基于芋道（Yudao）低代码平台完成二次开发：搭建本地前后端环境，通过 Vue3 管理后台定制业务菜单、配置生成参数，编写 SQL 脚本并完成代码包生成；将前端组件、后端代码及数据库脚本集成至项目，验证全链路功能正常，实现业务菜单模块快速落地。",
-  "工具链创新：在日常开发中深度集成 AI编程工具（Trae），用于自动化文档生成、代码片段生成、接口注释完善及基础逻辑编写，提升需求拆解与文档维护效率。",
+  "8年前端开发经验，深耕企业级后台管理系统、网络安全、3D可视化、实时通信等高阶场景，具备前端架构、工程化建设、团队管理、全栈交付能力，可独立负责技术选型、核心开发、性能优化与团队指导。",
+  "主导企业级项目全生命周期落地，完成Monorepo改造、组件化/模块化建设、代码规范与Git工作流制定，基于Jenkins搭建CI/CD流水线，研发效率提升60%+，页面加载速度提升40%+。",
+  "熟练支撑3D可视化、实时通信、AI集成、Web远程桌面等复杂场景；熟练uni-app跨端开发，掌握Nuxt4 SSR/SSG重构，具备Node.js全栈开发能力。",
+  "熟练芋道（Yudao）低代码平台，基于Spring Boot微服务前后端分离架构，独立完成CRM、ERP、商城、水务管理系统前后端全流程开发；熟练使用Docker一键部署MySQL、Nacos、Redis、Tomcat，快速搭建微服务环境，业务落地效率极高。",
+  "深度使用AI编程工具，自动化提升文档、接口与逻辑开发效率，具备全流程研发提效能力。",
 ];
 
 // 打字效果函数
